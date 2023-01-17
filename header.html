@@ -1,0 +1,51 @@
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7594742059456349"
+     crossorigin="anonymous"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script>
+function reRender() {
+    MathJax.texReset();
+    MathJax.typeset();
+    console.log("[MathJax] successfully refreshed at " + (new Date()));
+}
+function refreshInject() {
+    $("#main-nav").append(
+        `<li class=""><a title="" class="navigation-link " href="javascript:void(0);" onclick="reRender()" data-original-title="刷新Mathjax">
+			<i class="fa fa-refresh" aria-hidden="true"></i>
+			<span class="visible-xs-inline">刷新MathJax</span>
+		</a></li>`
+    );
+}
+window.onload = function() {
+    // typeset math in the page when url changes (not hash)
+    window.addEventListener('popstate', function() {
+        reRender();
+        refreshInject();
+    });
+    // typeset math in the page when hash changes
+    window.addEventListener('hashchange', function() {
+        reRender();
+        refreshInject();
+    });
+    // typeset math in the page when components are clicked
+    window.addEventListener('click', function() {
+        reRender();
+    });
+    // typeset math in the page when the innerHTML of <body> changes
+    window.addEventListener('DOMSubtreeModified', function() {
+        reRender();
+    });
+    // inject refresh button
+    refreshInject();
+};
+</script>
+
+ 230116  错误的网站 6K+d6K+077yM5a+G56CB5bCx5piv5LiL6Z2i6L+Z5LiyOgokJEhhcHB5TmV3WWVhcjIwMjMkJA==
